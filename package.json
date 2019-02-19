@@ -1,0 +1,42 @@
+{
+  "name": "kuglo",
+  "version": "0.1.0",
+  "description": "Practice for desktop app using Electron",
+  "keywords": [
+    "electron",
+    "react"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurone-kito/kuglo.git"
+  },
+  "author": "kurone-kito",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/kurone-kito/kuglo/issues"
+  },
+  "homepage": "https://github.com/kurone-kito/kuglo#readme",
+  "engines": {
+    "node": ">=8.8"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.1.18",
+    "@types/eslint": "^4.16.6",
+    "@types/jest": "^24.0.6",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.2",
+    "electron": "^4.0.5",
+    "enzyme": "^3.9.0",
+    "eslint": "^5.14.1",
+    "jest": "^24.1.0",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "styled-components": "^4.1.3"
+  }
+}
