@@ -2,6 +2,8 @@
   "name": "kuglo",
   "version": "0.1.0",
   "description": "Practice for desktop app using Electron",
+  "author": "kurone-kito",
+  "license": "CC-BY-NC-4.0",
   "keywords": [
     "electron",
     "react"
@@ -10,13 +12,14 @@
     "type": "git",
     "url": "git+https://github.com/kurone-kito/kuglo.git"
   },
-  "author": "kurone-kito",
-  "license": "CC-BY-NC-4.0",
   "bugs": {
     "url": "https://github.com/kurone-kito/kuglo/issues"
   },
   "homepage": "https://github.com/kurone-kito/kuglo#readme",
+  "main": "main.js",
   "scripts": {
+    "build": "webpack",
+    "start": "electron ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
