@@ -23,6 +23,19 @@
       {
         "extensions": [".jsx", ".tsx"]
       }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["./*.config.?s"]
+      }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack.config.js"
+      }
+    }
   }
 }
