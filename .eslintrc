@@ -23,6 +23,12 @@
       {
         "extensions": [".jsx", ".tsx"]
       }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["./*.config.?s"]
+      }
     ]
   },
   "settings": {
