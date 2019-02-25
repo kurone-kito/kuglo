@@ -24,5 +24,12 @@
         "extensions": [".jsx", ".tsx"]
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack.config.js"
+      }
+    }
   }
 }
