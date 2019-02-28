@@ -21,7 +21,7 @@ module.exports = {
         enforce: 'pre',
         loader: 'eslint-loader',
         options: {
-          configFile: '.eslintrc'
+          configFile: '.eslintrc.yml'
         }
       }
     ]
