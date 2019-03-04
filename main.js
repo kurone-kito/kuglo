@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 // ウインドウオブジェクトのグローバル参照を保持してください。さもないと、そのウインドウは
 // JavaScript オブジェクトがガベージコレクションを行った時に自動的に閉じられます。
@@ -9,7 +10,7 @@ function createWindow() {
   win = new BrowserWindow({ width: 854, height: 480 });
 
   // アプリの index.html を読み込む
-  win.loadFile('index.html');
+  win.loadFile(path.join(__dirname, './index.html'));
 
   // 開発者ツールを開く
   if (process.argv.find(arg => arg === '--debug')) {

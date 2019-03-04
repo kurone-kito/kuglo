@@ -9,9 +9,10 @@
     "moduleResolution": "node",
     "outDir": "./dist",
     "paths": {
-      "~t*": ["src/__test__*"],
+      "~t*": ["src/__tests__*"],
       "~*": ["src/ts*"]
     },
+    "resolveJsonModule": true,
     "strict": true,
     "target": "ES2017",
     "typeRoots": ["src/types", "node_modules/@types"]
