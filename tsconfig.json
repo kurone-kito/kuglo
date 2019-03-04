@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "outDir": "./dist",
     "paths": {
-      "~t*": ["src/__test__*"],
+      "~t*": ["src/__tests__*"],
       "~*": ["src/ts*"]
     },
     "strict": true,

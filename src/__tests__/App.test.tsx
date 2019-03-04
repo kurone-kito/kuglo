@@ -1,7 +1,7 @@
 import Enzyme from 'enzyme';
 import React from 'react';
 
-import App from '../ts/App';
+import App from '~/App';
 
 describe('<App />', () => {
   beforeEach(() => {
