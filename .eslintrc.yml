@@ -1,6 +1,7 @@
 env:
   browser: true
   es6: true
+  jest/globals: true
 extends:
   - 'eslint:recommended'
   - airbnb
@@ -16,6 +17,7 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
+  - jest
   - react
 rules:
   'react/jsx-filename-extension':
@@ -26,6 +28,7 @@ rules:
   'import/no-extraneous-dependencies':
     - error
     - devDependencies:
+        - './src/__tests__/*.?s*'
         - './*.config.?s'
         - './main.?s'
 settings:
