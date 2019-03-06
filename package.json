@@ -20,10 +20,10 @@
   "scripts": {
     "install": "npm run build",
     "start": "electron ./",
-    "test": "eslint src/**/* && jest --coverage",
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "build": "webpack",
     "pack": "electron-builder --x64",
-    "prettier": "prettier -c --write ./**/*"
+    "test:unit": "jest --coverage"
   },
   "engines": {
     "node": ">=8.10"
