@@ -1,5 +1,19 @@
-box: node
+box: electronuserland/builder:wine-chrome
 build:
   steps:
     - npm-install
     - npm-test
+build-dev:
+  steps:
+    - install-packages:
+      packages: libopenjp2-tools bsdtar snapcraft
+    - script:
+      name: build to binary for develop
+      code: npm run build:binary
+build-prod:
+  steps:
+    - install-packages:
+      packages: libopenjp2-tools bsdtar snapcraft
+    - script:
+      name: build to binary for production
+      code: npm run production

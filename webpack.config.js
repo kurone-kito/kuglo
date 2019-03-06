@@ -1,12 +1,12 @@
 const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
-module.exports = {
-  target: 'node',
+module.exports = (env, argv) => ({
+  target: 'electron-renderer',
   entry: './src/ts/index.tsx',
   cache: true,
-  mode: 'development', // 'production' | 'development' | 'none'
-  devtool: 'source-map',
+  devtool: argv.mode === 'development' ? 'source-map' : 'none',
+  mode: argv.mode,
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'index.js'
@@ -35,4 +35,4 @@ module.exports = {
     },
     extensions: ['.ts', '.tsx', '.js']
   }
-};
+});

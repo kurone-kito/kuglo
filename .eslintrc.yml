@@ -6,9 +6,6 @@ extends:
   - 'eslint:recommended'
   - airbnb
   - 'plugin:prettier/recommended'
-globals:
-  Atomics: readable
-  SharedArrayBuffer: readable
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
@@ -20,18 +17,18 @@ plugins:
   - jest
   - react
 rules:
-  'react/jsx-filename-extension':
+  react/jsx-filename-extension:
     - 2
     - extensions:
-        - '.jsx'
-        - '.tsx'
-  'import/no-extraneous-dependencies':
+        - .jsx
+        - .tsx
+  import/no-extraneous-dependencies:
     - error
     - devDependencies:
-        - './src/__tests__/*.?s*'
-        - './*.config.?s'
-        - './main.?s'
+        - ./src/__tests__/*.?s*
+        - ./*.config.?s
+        - ./main.?s
 settings:
-  'import/resolver':
+  import/resolver:
     webpack:
-      config: './webpack.config.js'
+      config: ./webpack.config.js

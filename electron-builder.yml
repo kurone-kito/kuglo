@@ -1,15 +1,39 @@
-productName: 'Kuglo'
-appId: 'black.kit.app.kuglo'
+productName: Kuglo
+appId: black.kit.app.kuglo
+appImage:
+  license: LICENSE
+directories:
+  output: dist/bin
 dmg:
   contents:
     - x: 130
       y: 220
     - x: 410
       y: 220
-      type: 'link'
-      path: '/Applications'
-mac:
-win:
+      type: link
+      path: /Applications
+linux:
+  publish:
+    provider: github
   target:
-    - 'zip'
-    - 'nsis'
+    - target: default
+      arch:
+        - x64
+mac:
+  publish:
+    provider: github
+  target:
+    - target: default
+      arch:
+        - x64
+  category: public.app-category.utilities
+nsis:
+  license: LICENSE
+win:
+  publish:
+    provider: github
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - ia32

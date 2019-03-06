@@ -1,25 +1,27 @@
 # 📣 Kuglo
 
+[![Coverage Status](https://coveralls.io/repos/github/kurone-kito/kuglo/badge.svg?branch=master)](https://coveralls.io/github/kurone-kito/kuglo?branch=master)
+
 Practice for desktop app using [Electron](https://github.com/electron/electron)
 
-# Debugging & Testing
+## Debugging & Testing
 
-## Prepare
+### Prepare
 
 Requirement: nodejs >= 8.10
 
 ```sh
-$ npm i; npm run build
+npm install
 ```
 
-## Debugging
+### Debugging
 
 ```sh
-$ npm start
+npm start
 ```
 
-## Testing
+### Testing
 
 ```sh
-$ npm test
+npm run test:unit
 ```
