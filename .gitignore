@@ -85,9 +85,6 @@ typings/
 *.sass.map
 *.scss.map
 
-# KUGLO build output
-dist/
-
 # macOS
 # General
 .DS_Store
@@ -140,3 +137,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# KUGLO build output
+.wercker/
+dist/
