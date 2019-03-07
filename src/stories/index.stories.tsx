@@ -3,9 +3,15 @@ import { storiesOf } from '@storybook/react';
 // import { linkTo } from '@storybook/addon-links';
 import React from 'react';
 
-// import { Button, Welcome } from '@storybook/react/demo';
+import Dummy from '~/Dummy';
 
 storiesOf('Welcome', module).add('to Storybook', () => <div>Hello</div>);
+
+storiesOf('Dummy', module)
+  .add('with text', () => <Dummy>Hello Headming</Dummy>)
+  .add('with some emoji', () => <Dummy>😀 😎 👍 💯</Dummy>);
+
+// import { Button, Welcome } from '@storybook/react/demo';
 
 // storiesOf('Button', module)
 //   .add('with text', () => (
