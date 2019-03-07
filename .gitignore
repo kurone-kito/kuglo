@@ -141,3 +141,5 @@ $RECYCLE.BIN/
 # KUGLO build output
 .wercker/
 dist/
+out????/
+storybook-static/

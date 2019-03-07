@@ -30,7 +30,8 @@
     "production:mac": "npm-run-all clean build:content:prod build:binary:mac",
     "test:unit": "jest --coverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook",
+    "storybook:deploy": "storybook-to-ghpages"
   },
   "engines": {
     "node": ">=8.10"
@@ -47,6 +48,7 @@
     "@storybook/addon-links": "^5.0.0",
     "@storybook/addons": "^5.0.0",
     "@storybook/react": "^5.0.0",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@types/babel__core": "^7.1.0",
     "@types/enzyme": "^3.1.18",
     "@types/enzyme-adapter-react-16": "^1.0.5",

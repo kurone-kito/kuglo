@@ -1,3 +1,5 @@
+const path = require('path');
+
 /** @typedef {import('webpack').Configuration} Configuration */
 
 /**
@@ -14,6 +16,13 @@ module.exports = ({ config }) => {
       { loader: require.resolve('react-docgen-typescript-loader') }
     ]
   });
+  config.performance = { hints: false };
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    '~': path.resolve(__dirname, '../src/ts/'),
+    '~t': path.resolve(__dirname, '../src/__tests__/')
+  };
   config.resolve.extensions.push('.ts', '.tsx');
+
   return config;
 };
