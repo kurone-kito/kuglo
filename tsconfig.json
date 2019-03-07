@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -13,6 +13,8 @@
       "~*": ["src/ts*"]
     },
     "resolveJsonModule": true,
+    "rootDir": "src",
+    "sourceMap": true,
     "strict": true,
     "target": "ES2017",
     "typeRoots": ["src/types", "node_modules/@types"]

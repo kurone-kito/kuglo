@@ -25,9 +25,11 @@ rules:
   import/no-extraneous-dependencies:
     - error
     - devDependencies:
+        - ./.storybook/*.?s*
         - ./src/__tests__/*.?s*
         - ./*.config.?s
         - ./main.?s
+        - ./stories/*.?s
 settings:
   import/resolver:
     webpack:
