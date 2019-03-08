@@ -17,6 +17,18 @@
     "sourceMap": true,
     "strict": true,
     "target": "ES2017",
+    "types": [
+      "babel__core",
+      "enzyme",
+      "enzyme-adapter-react-16",
+      "eslint",
+      "jest",
+      "react",
+      "react-dom",
+      "storybook__react",
+      "styled-components",
+      "webpack"
+    ],
     "typeRoots": ["src/types", "node_modules/@types"]
   },
   "include": ["./src/**/*"]
