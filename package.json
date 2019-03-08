@@ -29,9 +29,9 @@
     "production": "npm-run-all clean build:content:prod build:binary",
     "production:mac": "npm-run-all clean build:content:prod build:binary:mac",
     "test:unit": "jest --coverage",
-    "storybook": "npm run storybook:static && start-storybook -p 6006 -s .storybook/public",
+    "storybook": "npm run storybook:static && start-storybook --ci --port 6006 --static-dir .storybook/public",
     "storybook:static": "shx cp -r .circleci .storybook/public/",
-    "storybook:build": "npm run storybook:static && build-storybook -s .storybook/public"
+    "storybook:build": "npm run storybook:static && build-storybook --static-dir .storybook/public"
   },
   "engines": {
     "node": ">=8.10"
@@ -57,6 +57,7 @@
     "@types/webpack": "^4.4.25",
     "@typescript-eslint/eslint-plugin": "^1.4.0",
     "babel-loader": "^8.0.5",
+    "backstopjs": "^3.9.4",
     "coveralls": "^3.0.3",
     "electron": "^4.0.6",
     "electron-builder": "^20.38.5",
