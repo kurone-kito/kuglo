@@ -31,7 +31,10 @@
     "test:unit": "jest --coverage",
     "storybook": "npm run storybook:toc && start-storybook --ci --port 6006 --static-dir .storybook/public",
     "storybook:toc": "ts-node -r tsconfig-paths/register .storybook/create-toc.ts && shx cp -r .circleci .storybook/public/",
-    "storybook:build": "shx rm -rf storybook-static && npm run storybook:toc && build-storybook --static-dir .storybook/public"
+    "storybook:build": "shx rm -rf storybook-static && npm run storybook:toc && build-storybook --static-dir .storybook/public",
+    "visual:spec": "backstop reference --configPath=backstop.config.js",
+    "visual:test": "backstop test --configPath=backstop.config.js",
+    "visual:approve": "backstop approve --configPath=backstop.config.js"
   },
   "engines": {
     "node": ">=8.10"
@@ -81,9 +84,11 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
     "progress-bar-webpack-plugin": "^1.12.1",
+    "query-string": "^6.3.0",
     "react-docgen-typescript-loader": "^3.0.1",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "shx": "^0.3.2",
+    "sync-request": "^6.0.0",
     "ts-jest": "^24.0.0",
     "ts-loader": "^5.3.3",
     "ts-node": "^8.0.2",
