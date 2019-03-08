@@ -13,7 +13,7 @@
       "~*": ["src/ts*"]
     },
     "resolveJsonModule": true,
-    "rootDir": "src",
+    "rootDirs": ["src", ".storybook"],
     "sourceMap": true,
     "strict": true,
     "target": "ES2017",
@@ -31,5 +31,5 @@
     ],
     "typeRoots": ["src/types", "node_modules/@types"]
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", ".storybook/create-toc.ts"]
 }

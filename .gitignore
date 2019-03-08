@@ -140,6 +140,7 @@ $RECYCLE.BIN/
 
 # KUGLO build output
 .storybook/public/.circleci
+.storybook/public/toc.json
 .wercker/
 dist/
 out????/

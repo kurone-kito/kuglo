@@ -29,9 +29,9 @@
     "production": "npm-run-all clean build:content:prod build:binary",
     "production:mac": "npm-run-all clean build:content:prod build:binary:mac",
     "test:unit": "jest --coverage",
-    "storybook": "npm run storybook:static && start-storybook --ci --port 6006 --static-dir .storybook/public",
-    "storybook:static": "shx cp -r .circleci .storybook/public/",
-    "storybook:build": "npm run storybook:static && build-storybook --static-dir .storybook/public"
+    "storybook": "npm run storybook:toc && start-storybook --ci --port 6006 --static-dir .storybook/public",
+    "storybook:toc": "ts-node -r tsconfig-paths/register .storybook/create-toc.ts && shx cp -r .circleci .storybook/public/",
+    "storybook:build": "shx rm -rf storybook-static && npm run storybook:toc && build-storybook --static-dir .storybook/public"
   },
   "engines": {
     "node": ">=8.10"
@@ -87,6 +87,7 @@
     "ts-jest": "^24.0.0",
     "ts-loader": "^5.3.3",
     "ts-node": "^8.0.2",
+    "tsconfig-paths": "^3.8.0",
     "tsconfig-paths-jest": "0.0.1",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
