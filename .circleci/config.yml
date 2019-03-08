@@ -1,9 +1,8 @@
-version: 2.1
+version: 2
 jobs:
   build:
     branches:
-      only:
-        - master
+      only: master
     docker:
       - image: electronuserland/builder:wine-chrome
     working_directory: ~/repo
