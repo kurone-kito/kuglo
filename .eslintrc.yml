@@ -26,6 +26,7 @@ rules:
     - error
     - devDependencies:
         - ./.storybook/*.?s*
+        - ./backstop_data/**/*.?s*
         - ./src/__tests__/*.?s*
         - ./*.config.?s
         - ./main.?s
