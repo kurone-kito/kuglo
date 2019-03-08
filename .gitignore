@@ -142,6 +142,8 @@ $RECYCLE.BIN/
 .storybook/public/.circleci
 .storybook/public/toc.json
 .wercker/
+backstop_data/bitmaps_test
+backstop_data/html_report
 dist/
 out????/
 storybook-static/

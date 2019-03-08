@@ -8,7 +8,7 @@ import Dummy from '~/Dummy';
 storiesOf('Welcome', module).add('to Storybook', () => <div>Hello</div>);
 
 storiesOf('Dummy', module)
-  .add('with text', () => <Dummy>Hello Headming</Dummy>)
+  .add('with text', () => <Dummy>Hello, World!</Dummy>)
   .add('with some emoji', () => <Dummy>😀 😎 👍 💯</Dummy>);
 
 // import { Button, Welcome } from '@storybook/react/demo';
