@@ -1,6 +1,8 @@
 import React from 'react';
 
-const component: React.FC = () => <p className="x">Hi, my name is...</p>;
+import Dummy from './Dummy';
+
+const component: React.FC = () => <Dummy>Hi, my name is...</Dummy>;
 component.displayName = 'App';
 
 export default component;

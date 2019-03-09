@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -13,9 +13,23 @@
       "~*": ["src/ts*"]
     },
     "resolveJsonModule": true,
+    "rootDirs": ["src", ".storybook"],
+    "sourceMap": true,
     "strict": true,
     "target": "ES2017",
+    "types": [
+      "babel__core",
+      "enzyme",
+      "enzyme-adapter-react-16",
+      "eslint",
+      "jest",
+      "react",
+      "react-dom",
+      "storybook__react",
+      "styled-components",
+      "webpack"
+    ],
     "typeRoots": ["src/types", "node_modules/@types"]
   },
-  "include": ["./src/ts/**/*", "./src/__tests__/**/*"]
+  "include": ["./src/**/*", ".storybook/create-toc.ts"]
 }

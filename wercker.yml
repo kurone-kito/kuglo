@@ -17,3 +17,13 @@ build-prod:
     - script:
       name: build to binary for production
       code: npm run production
+deploy:
+  steps: []
+deploy-storybook:
+  steps:
+    - script:
+      name: Build the Storybook content
+      code: npm run storybook:build
+    - lukevivier/gh-pages:
+      token: $GITHUB_TOKEN
+      basedir: storybook-static
