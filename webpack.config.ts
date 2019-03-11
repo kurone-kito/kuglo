@@ -1,19 +1,10 @@
-const path = require('path');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
 
-/** @typedef {import('webpack').Configuration} Configuration */
-
-/**
- * @param {Configuration} __
- * @param {any} argv
- * @returns {Configuration}
- */
-module.exports = (__, argv) => ({
+const staticSettings: webpack.Configuration = {
   target: 'electron-renderer',
   entry: './src/ts/index.tsx',
   cache: true,
-  devtool: argv.mode === 'development' ? 'inline-source-map' : false,
-  mode: argv.mode,
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'index.js'
@@ -34,12 +25,21 @@ module.exports = (__, argv) => ({
       }
     ]
   },
-  plugins: [ProgressBarPlugin()],
   resolve: {
+    // TODO: Sync from tsconfig.json
     alias: {
       '~': path.resolve(__dirname, 'src/ts/'),
       '~t': path.resolve(__dirname, 'src/__tests__/')
     },
     extensions: ['.ts', '.tsx', '.js']
   }
+};
+
+export default (
+  __: webpack.Configuration,
+  args: { [x: string]: any }
+): webpack.Configuration => ({
+  ...staticSettings,
+  devtool: args.mode === 'development' ? 'inline-source-map' : false,
+  mode: args.mode
 });

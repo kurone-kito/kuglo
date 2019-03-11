@@ -1,5 +1,9 @@
 const request = require('sync-request');
 const queryString = require('query-string');
+const minimist = require('minimist');
+
+const args = minimist(process.argv);
+const port = args.port || 6006;
 
 /**
  * Create URL to stories.
@@ -10,10 +14,10 @@ const queryString = require('query-string');
 const createUrl = ({ kind: selectedKind, name: selectedStory }) => {
   const query = queryString.stringify({ selectedKind, selectedStory });
 
-  return `http://localhost:6006/iframe.html?${query}`;
+  return `http://localhost:${port}/iframe.html?${query}`;
 };
 // @ts-ignore
-const body = request('GET', 'http://localhost:6006/toc.json').getBody();
+const body = request('GET', `http://localhost:${port}/toc.json`).getBody();
 const scenarios = [...JSON.parse(body)].map(row => ({
   label: JSON.stringify(row),
   misMatchThreshold: 0.01,

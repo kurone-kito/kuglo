@@ -2,7 +2,9 @@ box: electronuserland/builder:wine-chrome
 build:
   steps:
     - npm-install
-    - npm-test
+    - script:
+      name: Testing
+      code: npm run test:coverage
 build-dev:
   steps:
     - install-packages:
