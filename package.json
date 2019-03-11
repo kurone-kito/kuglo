@@ -20,7 +20,7 @@
   "scripts": {
     "install": "npm run build:content:dev",
     "start": "electron ./",
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test": "jest --coverage",
     "build:content:dev": "webpack --mode development",
     "build:content:prod": "webpack --mode production",
     "build:binary": "electron-builder --windows --linux",
@@ -28,7 +28,7 @@
     "clean": "shx rm -rf coverage dist logs storybook-static",
     "production": "npm-run-all clean build:content:prod build:binary",
     "production:mac": "npm-run-all clean build:content:prod build:binary:mac",
-    "test:unit": "jest --coverage",
+    "test:coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "storybook": "npm run storybook:toc && start-storybook --ci --port 6006 --static-dir .storybook/public",
     "storybook:toc": "ts-node -r tsconfig-paths/register .storybook/create-toc.ts && shx cp -r .circleci .storybook/public/",
     "storybook:build": "shx rm -rf storybook-static && npm run storybook:toc && build-storybook --static-dir .storybook/public",
