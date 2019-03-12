@@ -2,13 +2,8 @@ import path from 'path';
 import webpack from 'webpack';
 
 const staticSettings: webpack.Configuration = {
-  target: 'electron-renderer',
-  entry: './src/ts/index.tsx',
   cache: true,
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'index.js'
-  },
+  entry: './src/ts/index.tsx',
   module: {
     rules: [
       {
@@ -25,14 +20,19 @@ const staticSettings: webpack.Configuration = {
       }
     ]
   },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'index.js'
+  },
   resolve: {
-    // TODO: Sync from tsconfig.json
+    // TODO: Automatically sync from tsconfig.json
     alias: {
       '~': path.resolve(__dirname, 'src/ts/'),
       '~t': path.resolve(__dirname, 'src/__tests__/')
     },
     extensions: ['.ts', '.tsx', '.js']
-  }
+  },
+  target: 'electron-renderer'
 };
 
 export default (
