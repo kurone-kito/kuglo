@@ -13,23 +13,9 @@
       "~*": ["src/ts*"]
     },
     "resolveJsonModule": true,
-    "rootDirs": ["src", ".storybook"],
     "sourceMap": true,
     "strict": true,
-    "target": "ES2017",
-    "types": [
-      "babel__core",
-      "enzyme",
-      "enzyme-adapter-react-16",
-      "eslint",
-      "jest",
-      "react",
-      "react-dom",
-      "storybook__react",
-      "styled-components",
-      "webpack"
-    ],
-    "typeRoots": ["src/types", "node_modules/@types"]
+    "target": "ES2017"
   },
-  "include": ["./src/**/*", ".storybook/create-toc.ts"]
+  "include": ["./src/**/*", ".storybook/create-toc.ts", "./gulpfile.ts"]
 }
