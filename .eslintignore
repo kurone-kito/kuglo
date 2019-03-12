@@ -1,2 +1,3 @@
-dist/
-node_modules/
+backstop_data/engine_scripts
+dist
+node_modules
