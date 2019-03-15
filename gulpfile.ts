@@ -1,9 +1,11 @@
-import { task } from 'gulp';
+import { series, task } from 'gulp';
 import * as tsConfigPaths from 'tsconfig-paths';
 import buildElectronAsync from './src/gulp/buildElectronAsync';
 import cleanAsync from './src/gulp/cleanAsync';
 import * as contentBuilder from './src/gulp/contentBuilder';
+import createToc from './src/gulp/createToc';
 import spawnAsync from './src/gulp/spawnAsync';
+import syncDummy from './src/gulp/syncDummy';
 import tsConfig from './tsconfig.json';
 
 // XXX: Although the cause is unknown, alias can not be resolved unless paths are explicitly specified.
@@ -11,6 +13,7 @@ const { baseUrl, paths } = tsConfig.compilerOptions;
 tsConfigPaths.register({ baseUrl, paths });
 
 task('clean', end => cleanAsync().then(end));
+task('clean:storybook', end => cleanAsync({ storybook: true }).then(end));
 task('build:content', contentBuilder.build);
 task('build:binary:inner', end => buildElectronAsync().then(end));
 task('build:binary', contentBuilder.condition('build:binary:inner'));
@@ -21,4 +24,8 @@ task('test:coverage', end =>
     end
   )
 );
+task('storybook:sync-dummy', syncDummy);
+task('storybook:create-toc', createToc);
+task('storybook:toc', series('storybook:create-toc', 'storybook:sync-dummy'));
+task('storybook:flush', series('clean:storybook', 'storybook:toc'));
 task('default', contentBuilder.condition('run:electron'));
