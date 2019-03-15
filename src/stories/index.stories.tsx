@@ -1,17 +1,17 @@
 import { storiesOf } from '@storybook/react';
-// import { action } from '@storybook/addon-actions';
-// import { linkTo } from '@storybook/addon-links';
 import React from 'react';
+import { IInteractions } from './toc';
 
-import Dummy from '~/Dummy';
+/** Interactions definition for BackstopJS. */
+export const interactions: IInteractions = [];
 
-storiesOf('Welcome', module).add('to Storybook', () => <div>Hello</div>);
-
-storiesOf('Dummy', module)
-  .add('with text', () => <Dummy>Hello, World!</Dummy>)
-  .add('with some emoji', () => <Dummy>😀 😎 👍 💯</Dummy>);
+export default storiesOf('Welcome', module).add('to Storybook', () => (
+  <div>Hello</div>
+));
 
 // import { Button, Welcome } from '@storybook/react/demo';
+// import { action } from '@storybook/addon-actions';
+// import { linkTo } from '@storybook/addon-links';
 
 // storiesOf('Button', module)
 //   .add('with text', () => (
