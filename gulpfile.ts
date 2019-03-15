@@ -6,6 +6,7 @@ import * as contentBuilder from './src/gulp/contentBuilder';
 import createToc from './src/gulp/createToc';
 import spawnAsync from './src/gulp/spawnAsync';
 import syncDummy from './src/gulp/syncDummy';
+import * as testRunner from './src/gulp/testRunner';
 import tsConfig from './tsconfig.json';
 
 // XXX: Although the cause is unknown, alias can not be resolved unless paths are explicitly specified.
@@ -18,12 +19,8 @@ task('build:content', contentBuilder.build);
 task('build:binary:inner', end => buildElectronAsync().then(end));
 task('build:binary', contentBuilder.condition('build:binary:inner'));
 task('run:electron', end => spawnAsync('electron ./').then(end));
-task('test', end => spawnAsync('jest --coverage').then(end));
-task('test:coverage', end =>
-  spawnAsync('jest --coverage --coverageReporters=text-lcov | coveralls').then(
-    end
-  )
-);
+task('test', end => testRunner.unitAsync().then(end));
+task('test:coverage', end => testRunner.coverageAsync().then(end));
 task('storybook:sync-dummy', syncDummy);
 task('storybook:create-toc', createToc);
 task('storybook:toc', series('storybook:create-toc', 'storybook:sync-dummy'));
