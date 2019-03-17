@@ -29,9 +29,9 @@
     "production": "npm run build:binary -- --mode production",
     "production:mac": "npm run build:binary:mac -- --mode production",
     "test:coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "storybook": "npm run storybook:toc && start-storybook --ci --static-dir .storybook/public --port 6006",
+    "storybook": "gulp storybook:start",
     "storybook:toc": "gulp storybook:toc",
-    "storybook:build": "gulp storybook:flush && build-storybook --static-dir .storybook/public",
+    "storybook:build": "gulp storybook:rebuild",
     "visual:spec": "backstop reference --configPath=backstop.config.js",
     "visual:test": "backstop test --configPath=backstop.config.js",
     "visual:approve": "backstop approve --configPath=backstop.config.js"
