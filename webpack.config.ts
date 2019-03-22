@@ -27,8 +27,7 @@ const staticSettings: webpack.Configuration = {
   resolve: {
     // TODO: Automatically sync from tsconfig.json
     alias: {
-      '~': path.resolve(__dirname, 'src/app/'),
-      '~t': path.resolve(__dirname, 'src/__tests__/')
+      '~': path.resolve(__dirname, 'src/')
     },
     extensions: ['.ts', '.tsx', '.js']
   },

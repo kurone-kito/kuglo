@@ -4,7 +4,7 @@ import { src } from 'gulp';
 import path from 'path';
 import through2 from 'through2';
 import vinyl from 'vinyl';
-import { IInteractions, IStories, ITOC } from '~/stories.toc';
+import { IInteractions, IStories, ITOC } from '~/app/stories.toc';
 
 /** Build TOC data. */
 class ScenarioBuilder {
@@ -18,7 +18,7 @@ class ScenarioBuilder {
     callback
   ) => {
     if (!chunk.isNull() && chunk.relative) {
-      const src = `~/../stories/${chunk.relative}`;
+      const src = `~/stories/${chunk.relative}`;
       const { default: story, interactions } = (await import(src)) as IStories;
       this.scenarioMap.set(story.kind, interactions);
     }
