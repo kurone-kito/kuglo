@@ -3,17 +3,17 @@ env:
   es6: true
   jest/globals: true
 extends:
-  - "eslint:recommended"
+  - 'eslint:recommended'
   - airbnb
-  - "plugin:prettier/recommended"
-parser: "@typescript-eslint/parser"
+  - 'plugin:prettier/recommended'
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
     jsx: true
   ecmaVersion: 2018
   sourceType: module
 plugins:
-  - "@typescript-eslint"
+  - '@typescript-eslint'
   - jest
   - react
 rules:
@@ -28,10 +28,11 @@ rules:
         - ./.storybook/*.?s*
         - ./backstop_data/**/*.?s*
         - ./src/__tests__/*.?s*
-        - ./*.config.?s
-        - ./gulpfile.?s
+        - ./src/gulp/*.?s*
         - ./main.?s
-        - ./stories/*.?s
+        - gulpfile.?s
+        - '*.config.?s'
+        - '*.stories.?s'
 settings:
   import/resolver:
     webpack:
