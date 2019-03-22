@@ -19,7 +19,7 @@ module.exports = ({ config }) => {
   config.performance = { hints: false };
   config.resolve.alias = {
     ...config.resolve.alias,
-    '~': path.resolve(__dirname, '../src/ts/'),
+    '~': path.resolve(__dirname, '../src/app/'),
     '~t': path.resolve(__dirname, '../src/__tests__/')
   };
   config.resolve.extensions.push('.ts', '.tsx');

@@ -3,7 +3,7 @@ import webpack from 'webpack';
 
 const staticSettings: webpack.Configuration = {
   cache: true,
-  entry: './src/ts/index.tsx',
+  entry: './src/app/index.tsx',
   module: {
     rules: [
       {
@@ -27,7 +27,7 @@ const staticSettings: webpack.Configuration = {
   resolve: {
     // TODO: Automatically sync from tsconfig.json
     alias: {
-      '~': path.resolve(__dirname, 'src/ts/'),
+      '~': path.resolve(__dirname, 'src/app/'),
       '~t': path.resolve(__dirname, 'src/__tests__/')
     },
     extensions: ['.ts', '.tsx', '.js']

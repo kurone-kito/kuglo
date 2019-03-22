@@ -10,7 +10,7 @@
     "outDir": "./dist",
     "paths": {
       "~t*": ["src/__tests__*"],
-      "~*": ["src/ts*"]
+      "~*": ["src/app*"]
     },
     "resolveJsonModule": true,
     "sourceMap": true,
