@@ -4,7 +4,7 @@ import { src } from 'gulp';
 import path from 'path';
 import through2 from 'through2';
 import vinyl from 'vinyl';
-import { IInteractions, IStories, ITOC } from '~/../stories/toc';
+import { IInteractions, IStories, ITOC } from 'src/stories/stories.toc';
 
 /** Build TOC data. */
 class ScenarioBuilder {

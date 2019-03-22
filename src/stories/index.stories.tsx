@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { IInteractions } from './toc';
+import { IInteractions } from './stories.toc';
 
 /** Interactions definition for BackstopJS. */
 export const interactions: IInteractions = [];
