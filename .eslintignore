@@ -1,3 +1,5 @@
-backstop_data/engine_scripts
-dist
-node_modules
+dist/**
+**/node_modules/**
+.storybook/public/**
+coverage/**
+storybook-static/**
