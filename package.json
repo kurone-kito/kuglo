@@ -27,7 +27,6 @@
     "build:production": "npm run build:binary -- --mode production",
     "build:production:mac": "npm run build:binary:mac -- --mode production",
     "build:storybook": "gulp storybook:rebuild",
-    "build:storybook:toc": "gulp storybook:toc",
     "start:storybook": "gulp storybook:start",
     "clean": "gulp clean",
     "test:coverage": "gulp test:coverage",
