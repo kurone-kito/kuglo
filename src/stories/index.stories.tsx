@@ -1,8 +1,18 @@
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { IInteraction } from './stories.toc';
+
+/** Interactions definition for BackstopJS. */
+export const interactions: IInteraction[] = [
+  {
+    name: 'to Storybook',
+    keyPressSelectors: [{ selector: '#title', keyPress: 'こんにちは' }]
+  }
+];
 
 export default storiesOf('Welcome', module).add('to Storybook', () => (
-  <div>Hello</div>
+  <div>{text('title', 'Hello')}</div>
 ));
 
 // import { Button, Welcome } from '@storybook/react/demo';
