@@ -1,22 +1,25 @@
 import { Story } from '@storybook/react';
 
+import { IBackstopScenarioOptions } from '../../backstop_data/engine_scripts/backstop';
+
 /** Definition of component interactions scenario. */
-export type IInteractions = unknown;
+export interface IInteraction extends Partial<IBackstopScenarioOptions> {
+  /** Scenario name. */
+  name: string;
+}
 
 /** Definition of TOC. */
 export interface ITOC {
-  /** Story kind of Storybook data. */
-  kind: string;
-  /** Story name of Storybook data. */
-  name: string;
+  /** Path of Storybook data. */
+  path: string;
   /** Interactions definition for BackstopJS. */
-  interactions: IInteractions;
+  interaction: IInteraction;
 }
 
 /** Interface of Storybook module. */
 export interface IStories {
   /** Current definition of Storybook data. */
-  default: Story;
+  default: () => Story;
   /** Interactions definition for BackstopJS. */
-  interactions: IInteractions;
+  interactions?: IInteraction[];
 }
