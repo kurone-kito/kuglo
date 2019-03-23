@@ -12,7 +12,10 @@ module.exports = ({ config }) => {
     exclude: /node_modules/,
     test: /\.tsx?$/,
     use: [
-      { loader: require.resolve('ts-loader') },
+      {
+        loader: require.resolve('ts-loader'),
+        options: { transpileOnly: true }
+      },
       { loader: require.resolve('react-docgen-typescript-loader') }
     ]
   });
