@@ -32,7 +32,6 @@ module.exports = {
   engine: 'puppeteer',
   engineOptions: {},
   id: 'kuglo',
-  onBeforeScript: 'puppet/onBefore.js',
   onReadyScript: 'puppet/onReady.js',
   paths: {
     bitmaps_reference: 'backstop_data/bitmaps_reference',

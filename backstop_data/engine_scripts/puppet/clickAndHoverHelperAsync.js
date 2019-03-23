@@ -1,35 +1,65 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-restricted-syntax */
-module.exports = async (page, scenario) => {
-  const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
-  const clickSelector = scenario.clickSelectors || scenario.clickSelector;
-  const keyPressSelector =
-    scenario.keyPressSelectors || scenario.keyPressSelector;
-  const { scrollToSelector } = scenario;
-  const { postInteractionWait } = scenario; // selector [str] | ms [int]
+/** @typedef {import('puppeteer').Page} Page */
+/** @typedef {import('../backstop').IBackstopScenario} IBackstopScenario */
 
-  if (keyPressSelector) {
-    for (const keyPressSelectorItem of [].concat(keyPressSelector)) {
-      await page.waitFor(keyPressSelectorItem.selector);
-      await page.type(
-        keyPressSelectorItem.selector,
-        keyPressSelectorItem.keyPress
-      );
-    }
+/**
+ * @param {T | T[]} source
+ * @param {(item: T) => Promise<void>} func
+ * @template T
+ */
+const doSequential = (source, func) =>
+  (Array.isArray(source) ? [...source] : [source])
+    .map(item => () => func(item))
+    .reduce((prev, curr) => prev.then(curr), Promise.resolve());
+
+/**
+ * @param {Page} page
+ * @param {IBackstopScenario} scenario
+ */
+module.exports = async (
+  page,
+  {
+    clickSelectors,
+    clickSelector,
+    hoverSelector,
+    hoverSelectors,
+    keyPressSelectors,
+    keyPressSelector,
+    postInteractionWait,
+    scrollToSelector
+  }
+) => {
+  const click = clickSelectors || clickSelector;
+  const hover = hoverSelectors || hoverSelector;
+  const keypress = keyPressSelectors || keyPressSelector;
+
+  if (keypress) {
+    /** @param {string} selector */
+    const fn = selector => {
+      /** @type {HTMLInputElement} */
+      const found = document.querySelector(selector);
+      if (found.value) {
+        found.value = '';
+      }
+    };
+    await doSequential(keypress, async ({ keyPress, selector }) => {
+      await page.waitFor(selector);
+      await page.evaluate(fn, selector);
+      await page.type(selector, keyPress);
+    });
   }
 
-  if (hoverSelector) {
-    for (const hoverSelectorIndex of [].concat(hoverSelector)) {
-      await page.waitFor(hoverSelectorIndex);
-      await page.hover(hoverSelectorIndex);
-    }
+  if (hover) {
+    await doSequential(hover, async item => {
+      await page.waitFor(item);
+      await page.hover(item);
+    });
   }
 
-  if (clickSelector) {
-    for (const clickSelectorIndex of [].concat(clickSelector)) {
-      await page.waitFor(clickSelectorIndex);
-      await page.click(clickSelectorIndex);
-    }
+  if (click) {
+    await doSequential(click, async item => {
+      await page.waitFor(item);
+      await page.click(item);
+    });
   }
 
   if (postInteractionWait) {
@@ -37,9 +67,9 @@ module.exports = async (page, scenario) => {
   }
 
   if (scrollToSelector) {
+    /** @param {string} selector */
+    const fn = selector => document.querySelector(selector).scrollIntoView();
     await page.waitFor(scrollToSelector);
-    await page.evaluate(scrollToSelector => {
-      document.querySelector(scrollToSelector).scrollIntoView();
-    }, scrollToSelector);
+    await page.evaluate(fn, scrollToSelector);
   }
 };
