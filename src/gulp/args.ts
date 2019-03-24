@@ -1,15 +1,6 @@
 import minimist from 'minimist';
-
-/** CLI Options definition for building content. */
-interface IContentBuildOptions {
-  /** Build mode. */
-  mode: 'development' | 'production';
-}
-
-/** Default values of options for building content. */
-export const contentBuildOptions = Object.freeze({
-  mode: 'development'
-} as IContentBuildOptions);
+import { options as binaryBuilderOptions } from './buildElectronAsync';
+import { options as contentBuilderOptions } from './contentBuilder';
 
 /** Default values of options for building redistributable package. */
 export const packageBuildOptions = Object.freeze({
@@ -33,9 +24,10 @@ export const cleanOptions = Object.freeze({
 
 /** Combined default values. */
 const defaultArgs = {
-  ...packageBuildOptions,
-  ...contentBuildOptions,
-  ...cleanOptions
+  ...binaryBuilderOptions,
+  ...contentBuilderOptions,
+  ...cleanOptions,
+  ...packageBuildOptions
 };
 
 /** Type of combined default values. */

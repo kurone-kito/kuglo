@@ -28,3 +28,14 @@ export const build = () => {
     .pipe(webpack(config))
     .pipe(dest(config!.output!.path as string));
 };
+
+/** CLI Options definition for building content. */
+interface IContentBuildOptions {
+  /** Build mode. */
+  mode: 'development' | 'production';
+}
+
+/** Default values of options for building content. */
+export const options = Object.freeze({
+  mode: 'development'
+} as IContentBuildOptions);
