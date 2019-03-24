@@ -14,21 +14,21 @@ import tsConfig from './tsconfig.json';
 const { baseUrl, paths } = tsConfig.compilerOptions;
 tsConfigPaths.register({ baseUrl, paths });
 
-task('clean', end => cleanAsync().then(end));
-task('clean:dist', end => cleanAsync({ dist: true }).then(end)); // Put before `contentBuilder.condition`.
-task('clean:storybook', end => cleanAsync({ storybook: true }).then(end));
+task('clean', () => cleanAsync());
+task('clean:dist', () => cleanAsync({ dist: true })); // Put before `contentBuilder.condition`.
+task('clean:storybook', () => cleanAsync({ storybook: true }));
 task('build:content', contentBuilder.build); // Put before `contentBuilder.condition`.
-task('build:binary:inner', end => buildElectronAsync().then(end));
+task('build:binary:inner', () => buildElectronAsync());
 task('build:binary', contentBuilder.condition('build:binary:inner'));
-task('run:electron', end => spawnAsync('electron ./').then(end));
-task('test', end => testRunner.unitAsync().then(end));
-task('test:coverage', end => testRunner.coverageAsync().then(end));
+task('run:electron', () => spawnAsync('electron ./'));
+task('test', () => testRunner.unitAsync());
+task('test:coverage', () => testRunner.coverageAsync());
 task('storybook:sync-dummy', syncDummy);
 task('storybook:create-toc', createToc);
 task('storybook:toc', series('storybook:create-toc', 'storybook:sync-dummy'));
 task('storybook:flush', series('clean:storybook', 'storybook:toc'));
-task('storybook:build', end => storybook.buildAsync().then(end));
+task('storybook:build', () => storybook.buildAsync());
 task('storybook:rebuild', series('storybook:flush', 'storybook:build'));
-task('storybook:launch', end => storybook.launchAsync().then(end));
+task('storybook:launch', () => storybook.launchAsync());
 task('storybook:start', series('storybook:toc', 'storybook:launch'));
 task('default', contentBuilder.condition('run:electron'));
