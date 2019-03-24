@@ -22,17 +22,17 @@
     "test": "gulp test",
     "build:content:dev": "gulp build:content --mode development",
     "build:content:prod": "gulp build:content --mode production",
-    "build:binary": "gulp build:binary --windows --linux",
+    "build:binary": "gulp build:binary:full --windows --linux",
     "build:binary:mac": "npm run build:binary -- --macos",
     "build:production": "npm run build:binary -- --mode production",
     "build:production:mac": "npm run build:binary:mac -- --mode production",
-    "build:storybook": "gulp storybook:rebuild",
-    "start:storybook": "gulp storybook:start",
+    "build:storybook": "gulp build:sb:rebuild",
+    "start:storybook": "gulp run:sb",
     "clean": "gulp clean",
-    "test:coverage": "gulp test:coverage",
-    "visual:spec": "backstop reference --configPath=backstop.config.js",
-    "visual:test": "backstop test --configPath=backstop.config.js",
-    "visual:approve": "backstop approve --configPath=backstop.config.js"
+    "test:backstop": "backstop test --configPath=backstop.config.js",
+    "test:backstop:spec": "backstop reference --configPath=backstop.config.js",
+    "test:backstop:approve": "backstop approve --configPath=backstop.config.js",
+    "test:coverage": "gulp test:coverage"
   },
   "engines": {
     "node": ">=8.10"

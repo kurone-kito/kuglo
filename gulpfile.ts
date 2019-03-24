@@ -16,19 +16,18 @@ tsConfigPaths.register({ baseUrl, paths });
 
 task('clean', () => cleanAsync());
 task('clean:dist', () => cleanAsync({ dist: true })); // Put before `contentBuilder.condition`.
-task('clean:storybook', () => cleanAsync({ storybook: true }));
+task('clean:sb', () => cleanAsync({ storybook: true }));
 task('build:content', contentBuilder.build); // Put before `contentBuilder.condition`.
-task('build:binary:inner', () => buildElectronAsync());
-task('build:binary', contentBuilder.condition('build:binary:inner'));
+task('build:binary', () => buildElectronAsync());
+task('build:binary:full', contentBuilder.condition('build:binary'));
+task('build:sb', () => storybook.buildAsync());
+task('build:sb:dummy-ci', syncDummy);
+task('build:sb:toc', createToc);
+task('build:sb:pre', series('build:sb:dummy-ci', 'build:sb:toc'));
+task('build:sb:rebuild', series('clean:sb', 'build:sb:pre', 'build:sb'));
 task('run:electron', () => spawnAsync('electron ./'));
+task('run:sb:serve', () => storybook.launchAsync());
+task('run:sb', series('build:sb:pre', 'run:sb:serve'));
 task('test', () => testRunner.unitAsync());
 task('test:coverage', () => testRunner.coverageAsync());
-task('storybook:sync-dummy', syncDummy);
-task('storybook:create-toc', createToc);
-task('storybook:toc', series('storybook:create-toc', 'storybook:sync-dummy'));
-task('storybook:flush', series('clean:storybook', 'storybook:toc'));
-task('storybook:build', () => storybook.buildAsync());
-task('storybook:rebuild', series('storybook:flush', 'storybook:build'));
-task('storybook:launch', () => storybook.launchAsync());
-task('storybook:start', series('storybook:toc', 'storybook:launch'));
 task('default', contentBuilder.condition('run:electron'));

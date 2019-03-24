@@ -6,8 +6,8 @@ import { options as contentBuilderOptions } from './contentBuilder';
 /** Combined default values. */
 const defaultArgs = {
   ...binaryBuilderOptions,
-  ...contentBuilderOptions,
-  ...cleanOptions
+  ...cleanOptions,
+  ...contentBuilderOptions
 };
 
 /** Type of combined default values. */
