@@ -12,7 +12,9 @@ import webpackConfig from '../../webpack.config';
 export const condition = (...postTasks: string[]) => {
   const production = getArgs().mode === 'production';
   return series(
-    ...(production || !fs.existsSync('dist') ? ['clean', 'build:content'] : []),
+    ...(production || !fs.existsSync('dist')
+      ? ['clean:dist', 'build:content']
+      : []),
     ...postTasks
   );
 };

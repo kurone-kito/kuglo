@@ -15,8 +15,9 @@ const { baseUrl, paths } = tsConfig.compilerOptions;
 tsConfigPaths.register({ baseUrl, paths });
 
 task('clean', end => cleanAsync().then(end));
+task('clean:dist', end => cleanAsync({ dist: true }).then(end)); // Put before `contentBuilder.condition`.
 task('clean:storybook', end => cleanAsync({ storybook: true }).then(end));
-task('build:content', contentBuilder.build);
+task('build:content', contentBuilder.build); // Put before `contentBuilder.condition`.
 task('build:binary:inner', end => buildElectronAsync().then(end));
 task('build:binary', contentBuilder.condition('build:binary:inner'));
 task('run:electron', end => spawnAsync('electron ./').then(end));
