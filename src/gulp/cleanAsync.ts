@@ -45,7 +45,11 @@ const cleanAsync = async (o: Partial<OptionsType> = options) => {
     all || args[key] ? forceRemoveAsync(targets) : undefined;
   await remove('logs', ['coverage', 'logs']);
   await remove('dist', ['dist']);
-  await remove('storybook', ['storybook-static']);
+  await remove('storybook', [
+    'storybook-static',
+    '.storybook/public/.circleci',
+    '.storybook/public/toc.json'
+  ]);
 };
 
 export default cleanAsync;
