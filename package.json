@@ -28,12 +28,11 @@
     "build:production:mac": "npm run build:binary:mac -- --mode production",
     "build:storybook": "gulp build:sb:rebuild",
     "start:storybook": "gulp run:sb",
-    "clean": "gulp clean",
-    "test:backstop": "gulp run:backstop:rebuild --backstop test",
-    "test:backstop:approve": "gulp run:backstop:approve",
-    "test:backstop:report": "gulp run:backstop:report",
-    "test:backstop:spec": "gulp run:backstop:rebuild --backstop reference",
-    "test:coverage": "gulp test:coverage"
+    "test:coverage": "gulp test:coverage",
+    "test:visual": "gulp run:backstop:rebuild --backstop test",
+    "test:visual:approve": "gulp run:backstop:approve",
+    "test:visual:report": "gulp run:backstop:report",
+    "test:visual:spec": "gulp run:backstop:rebuild --backstop reference"
   },
   "engines": {
     "node": ">=8.10"
