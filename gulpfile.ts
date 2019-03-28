@@ -1,5 +1,6 @@
 import { series, task } from 'gulp';
 import * as tsConfigPaths from 'tsconfig-paths';
+import backstopAsync from './src/gulp/backstopAsync';
 import buildElectronAsync from './src/gulp/buildElectronAsync';
 import cleanAsync from './src/gulp/cleanAsync';
 import * as contentBuilder from './src/gulp/contentBuilder';
@@ -25,9 +26,14 @@ task('build:sb:dummy-ci', syncDummy);
 task('build:sb:toc', createToc);
 task('build:sb:pre', series('build:sb:dummy-ci', 'build:sb:toc'));
 task('build:sb:rebuild', series('clean:sb', 'build:sb:pre', 'build:sb'));
+task('run:backstop', () => backstopAsync());
+task('run:backstop:approve', () => spawnAsync('backstop approve'));
+task('run:backstop:rebuild', series('build:sb:pre', 'run:backstop'));
+task('run:backstop:report', () => spawnAsync('backstop openReport'));
 task('run:electron', () => spawnAsync('electron ./'));
 task('run:sb:serve', () => storybook.launchAsync());
 task('run:sb', series('build:sb:pre', 'run:sb:serve'));
 task('test', () => testRunner.unitAsync());
 task('test:coverage', () => testRunner.coverageAsync());
+
 task('default', contentBuilder.condition('run:electron'));

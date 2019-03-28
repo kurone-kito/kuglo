@@ -1,10 +1,12 @@
 import minimist from 'minimist';
+import { options as backstopOptions } from './backstopAsync';
 import { options as binaryBuilderOptions } from './buildElectronAsync';
 import { options as cleanOptions } from './cleanAsync';
 import { options as contentBuilderOptions } from './contentBuilder';
 
 /** Combined default values. */
 const defaultArgs = {
+  ...backstopOptions,
   ...binaryBuilderOptions,
   ...cleanOptions,
   ...contentBuilderOptions
