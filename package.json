@@ -29,9 +29,10 @@
     "build:storybook": "gulp build:sb:rebuild",
     "start:storybook": "gulp run:sb",
     "clean": "gulp clean",
-    "test:backstop": "backstop test --configPath=backstop.config.js",
-    "test:backstop:spec": "backstop reference --configPath=backstop.config.js",
-    "test:backstop:approve": "backstop approve --configPath=backstop.config.js",
+    "test:backstop": "gulp run:backstop:rebuild --backstop test",
+    "test:backstop:approve": "gulp run:backstop:approve",
+    "test:backstop:report": "gulp run:backstop:report",
+    "test:backstop:spec": "gulp run:backstop:rebuild --backstop reference",
     "test:coverage": "gulp test:coverage"
   },
   "engines": {
