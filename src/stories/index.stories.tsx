@@ -16,9 +16,9 @@ export const interactions: IInteraction[] = [
 ];
 
 export default () =>
-  storiesOf('Welcome', module).add('to Storybook', () => (
-    <div>{text('title', 'Hello')}</div>
-  ));
+  storiesOf('Welcome', module)
+    .addDecorator(withKnobs)
+    .add('to Storybook', () => <div>{text('title', 'Hello')}</div>);
 
 // import { Button, Welcome } from '@storybook/react/demo';
 // import { action } from '@storybook/addon-actions';
