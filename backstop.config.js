@@ -12,8 +12,12 @@ const response = request('GET', `http://localhost:${port}/toc.json`);
 /** @type {import('./src/stories/stories.toc').ITOC[]} */
 const raw = [...JSON.parse(response.getBody())];
 const scenarios = raw.map(
-  ({ interaction: { name, keyPressSelectors, ...interaction }, path }) => ({
-    label: JSON.stringify(path),
+  ({
+    hash,
+    interaction: { name, keyPressSelectors, ...interaction },
+    path
+  }) => ({
+    label: `${path}: ${hash}`,
     misMatchThreshold: 0.001,
     url: `http://localhost:${port}/?path=${path}`,
     readyEvent: 'storiesConfigured',

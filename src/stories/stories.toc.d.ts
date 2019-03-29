@@ -10,10 +10,12 @@ export interface IInteraction extends Partial<IBackstopScenarioOptions> {
 
 /** Definition of TOC. */
 export interface ITOC {
-  /** Path of Storybook data. */
-  path: string;
+  /** Hash of interactions. */
+  hash: string;
   /** Interactions definition for BackstopJS. */
   interaction: IInteraction;
+  /** Path of Storybook data. */
+  path: string;
 }
 
 /** Interface of Storybook module. */

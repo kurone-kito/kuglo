@@ -2,6 +2,7 @@ import { getStorybook } from '@storybook/react';
 import { toId } from '@storybook/router/dist/utils';
 import fs from 'fs';
 import { src } from 'gulp';
+import hash from 'object-hash';
 import path from 'path';
 import through2 from 'through2';
 import vinyl from 'vinyl';
@@ -34,6 +35,7 @@ class ScenarioBuilder {
         ({ name }) => names.some(n => name === n)
       );
       const scenarios = interactions.map(interaction => ({
+        hash: hash(interaction),
         interaction,
         path: `/story/${toId(kind, interaction.name)}`
       }));
