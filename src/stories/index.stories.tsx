@@ -8,6 +8,10 @@ export const interactions: IInteraction[] = [
   {
     name: 'to Storybook',
     keyPressSelectors: [{ selector: '#title', keyPress: 'こんにちは' }]
+  },
+  {
+    name: 'to Storybook',
+    keyPressSelectors: [{ selector: '#title', keyPress: '您好' }]
   }
 ];
 
