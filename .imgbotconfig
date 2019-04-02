@@ -1,0 +1,5 @@
+{
+  "schedule": "weekly",
+  "ignoredFiles": ["backstop_data/*"],
+  "aggressiveCompression": "false"
+}
