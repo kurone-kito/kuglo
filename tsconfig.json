@@ -9,8 +9,7 @@
     "moduleResolution": "node",
     "outDir": "./dist",
     "paths": {
-      "~t*": ["src/__tests__*"],
-      "~*": ["src/ts*"]
+      "~*": ["src*"]
     },
     "resolveJsonModule": true,
     "sourceMap": true,

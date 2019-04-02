@@ -24,5 +24,5 @@ npm start
 ### Testing
 
 ```sh
-npm run test:unit
+npm test
 ```

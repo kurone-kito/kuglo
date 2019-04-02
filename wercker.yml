@@ -18,14 +18,14 @@ build-prod:
       packages: libopenjp2-tools bsdtar snapcraft
     - script:
       name: build to binary for production
-      code: npm run production
+      code: npm run build:production
 deploy:
   steps: []
 deploy-storybook:
   steps:
     - script:
       name: Build the Storybook content
-      code: npm run storybook:build
+      code: npm run build:storybook
     - lukevivier/gh-pages:
       token: $GITHUB_TOKEN
       basedir: storybook-static

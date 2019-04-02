@@ -1,41 +1,15 @@
 import minimist from 'minimist';
-
-/** CLI Options definition for building content. */
-interface IContentBuildOptions {
-  /** Build mode. */
-  mode: 'development' | 'production';
-}
-
-/** Default values of options for building content. */
-export const contentBuildOptions = Object.freeze({
-  mode: 'development'
-} as IContentBuildOptions);
-
-/** Default values of options for building redistributable package. */
-export const packageBuildOptions = Object.freeze({
-  /** For Linux. */
-  linux: true,
-  /** For macOS. */
-  macos: false,
-  /** For Windows. */
-  windows: true
-});
-
-/** Default values of options for cleaning. */
-export const cleanOptions = Object.freeze({
-  /** Remove the logs. */
-  logs: false,
-  /** Remove the built data. */
-  dist: false,
-  /** Remove the built data of Storybook. */
-  storybook: false
-});
+import { options as backstopOptions } from './backstopAsync';
+import { options as binaryBuilderOptions } from './buildElectronAsync';
+import { options as cleanOptions } from './cleanAsync';
+import { options as contentBuilderOptions } from './contentBuilder';
 
 /** Combined default values. */
 const defaultArgs = {
-  ...packageBuildOptions,
-  ...contentBuildOptions,
-  ...cleanOptions
+  ...backstopOptions,
+  ...binaryBuilderOptions,
+  ...cleanOptions,
+  ...contentBuilderOptions
 };
 
 /** Type of combined default values. */

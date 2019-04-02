@@ -1,5 +1,15 @@
-import getArgs, { packageBuildOptions as options } from './args';
+import getArgs from './args';
 import spawnAsync from './spawnAsync';
+
+/** Default values of options for building redistributable package. */
+export const options = Object.freeze({
+  /** For Linux. */
+  linux: true,
+  /** For macOS. */
+  macos: false,
+  /** For Windows. */
+  windows: true
+});
 
 /** Keys list of CLI options definition. */
 const keys = Object.keys(options) as (keyof typeof options)[];

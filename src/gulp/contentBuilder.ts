@@ -12,7 +12,9 @@ import webpackConfig from '../../webpack.config';
 export const condition = (...postTasks: string[]) => {
   const production = getArgs().mode === 'production';
   return series(
-    ...(production || !fs.existsSync('dist') ? ['clean', 'build:content'] : []),
+    ...(production || !fs.existsSync('dist')
+      ? ['clean:dist', 'build:content']
+      : []),
     ...postTasks
   );
 };
@@ -28,3 +30,14 @@ export const build = () => {
     .pipe(webpack(config))
     .pipe(dest(config!.output!.path as string));
 };
+
+/** CLI Options definition for building content. */
+interface IContentBuildOptions {
+  /** Build mode. */
+  mode: 'development' | 'production';
+}
+
+/** Default values of options for building content. */
+export const options = Object.freeze({
+  mode: 'development'
+} as IContentBuildOptions);

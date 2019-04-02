@@ -12,15 +12,17 @@ module.exports = ({ config }) => {
     exclude: /node_modules/,
     test: /\.tsx?$/,
     use: [
-      { loader: require.resolve('ts-loader') },
+      {
+        loader: require.resolve('ts-loader'),
+        options: { transpileOnly: true }
+      },
       { loader: require.resolve('react-docgen-typescript-loader') }
     ]
   });
   config.performance = { hints: false };
   config.resolve.alias = {
     ...config.resolve.alias,
-    '~': path.resolve(__dirname, '../src/ts/'),
-    '~t': path.resolve(__dirname, '../src/__tests__/')
+    '~': path.resolve(__dirname, '../src/')
   };
   config.resolve.extensions.push('.ts', '.tsx');
 

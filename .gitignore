@@ -143,7 +143,7 @@ $RECYCLE.BIN/
 .storybook/public/toc.json
 .wercker/
 backstop_data/bitmaps_test
-backstop_data/html_report
+backstop_data/*_report
 dist/
 out????/
 storybook-static/
