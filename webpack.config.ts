@@ -31,7 +31,8 @@ const staticSettings: webpack.Configuration = {
     },
     extensions: ['.ts', '.tsx', '.js']
   },
-  target: 'electron-renderer'
+  target: 'electron-renderer',
+  watch: true
 };
 
 export default (

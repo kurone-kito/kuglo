@@ -1,5 +1,8 @@
-const { app, BrowserWindow } = require('electron');
+const electron = require('electron');
+require('electron-reload')(__dirname, { electron });
 const path = require('path');
+
+const { app, BrowserWindow } = electron;
 
 // ウインドウオブジェクトのグローバル参照を保持してください。さもないと、そのウインドウは
 // JavaScript オブジェクトがガベージコレクションを行った時に自動的に閉じられます。
