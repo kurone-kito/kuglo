@@ -1,5 +1,4 @@
-dist/**
-**/node_modules/**
-.storybook/public/**
-coverage/**
-storybook-static/**
+/.storybook/public/**
+/dist/**
+/coverage/**
+/storybook-static/**
