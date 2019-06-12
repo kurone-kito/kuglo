@@ -6,7 +6,7 @@ import hash from 'object-hash';
 import path from 'path';
 import through2 from 'through2';
 import vinyl from 'vinyl';
-import { IInteraction, IStories, ITOC } from '~/stories/stories.toc';
+import { IInteraction, IStories, ITOC } from '~/stories/stories.toc.d';
 
 /** Build TOC data. */
 class ScenarioBuilder {
@@ -20,8 +20,10 @@ class ScenarioBuilder {
     callback
   ) => {
     if (!chunk.isNull() && chunk.relative) {
-      const src = `~/stories/${chunk.relative}`;
-      const { default: story, interactions } = (await import(src)) as IStories;
+      const source = `~/stories/${chunk.relative}`;
+      const { default: story, interactions } = (await import(
+        source
+      )) as IStories;
       this.interactionsMap.set(story().kind, interactions || []);
     }
     callback(undefined, chunk);

@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
 
-import { IBackstopScenarioOptions } from '../../backstop_data/engine_scripts/backstop';
+import { IBackstopScenarioOptions } from '../../backstop_data/engine_scripts/backstop.d';
 
 /** Definition of component interactions scenario. */
 export interface IInteraction extends Partial<IBackstopScenarioOptions> {
