@@ -6,6 +6,7 @@ extends:
   - 'eslint:recommended'
   - airbnb
   - 'plugin:prettier/recommended'
+  - prettier/@typescript-eslint
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
@@ -14,14 +15,13 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
+  - import
   - jest
   - react
 rules:
-  react/jsx-filename-extension:
-    - 2
-    - extensions:
-        - .jsx
-        - .tsx
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - args: none
   import/no-extraneous-dependencies:
     - error
     - devDependencies:
@@ -29,10 +29,18 @@ rules:
         - ./backstop_data/**/*.?s*
         - ./src/__tests__/*.?s*
         - ./src/gulp/*.?s*
+        - ./src/stories/*.?s*
         - ./main.?s
         - gulpfile.?s
         - '*.config.?s'
         - '*.stories.?s'
+  no-console:
+    - warn
+  react/jsx-filename-extension:
+    - 2
+    - extensions:
+        - .jsx
+        - .tsx
 settings:
   import/resolver:
     webpack:
