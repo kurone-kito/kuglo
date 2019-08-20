@@ -35,7 +35,7 @@
     "test:visual:spec": "gulp run:backstop:rebuild --backstop reference"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=12.7"
   },
   "dependencies": {
     "react": "^16.8.6",
