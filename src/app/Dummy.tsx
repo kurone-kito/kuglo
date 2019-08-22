@@ -6,5 +6,5 @@ const DummyH1 = styled.h1`
   color: #600;
 `;
 
-const Dummy = ({ ...props }) => <DummyH1 {...props} />;
+const Dummy: React.FC = ({ children }) => <DummyH1>{children}</DummyH1>;
 export default Dummy;
