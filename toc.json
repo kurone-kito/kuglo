@@ -1,0 +1,28 @@
+[
+  {
+    "hash": "f04e5b16f75b2b3f639b06bc5bae0a3dd6062714",
+    "interaction": {
+      "name": "to Storybook",
+      "keyPressSelectors": [
+        {
+          "selector": "#title",
+          "keyPress": "こんにちは"
+        }
+      ]
+    },
+    "path": "/story/welcome--to-storybook"
+  },
+  {
+    "hash": "8f01f11f7ea8d6e53a27daee5ae232d45253f139",
+    "interaction": {
+      "name": "to Storybook",
+      "keyPressSelectors": [
+        {
+          "selector": "#title",
+          "keyPress": "您好"
+        }
+      ]
+    },
+    "path": "/story/welcome--to-storybook"
+  }
+]
