@@ -110,7 +110,7 @@
     "tsconfig-paths-jest": "0.0.1",
     "typescript": "^3.5.3",
     "vinyl": "^2.2.0",
-    "webpack": "^4.39.2",
+    "webpack": "^4.41.5",
     "webpack-stream": "^5.2.1"
   },
   "husky": {
