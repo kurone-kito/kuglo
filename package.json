@@ -71,7 +71,7 @@
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "babel-loader": "^8.0.6",
-    "backstopjs": "^4.1.12",
+    "backstopjs": "^5.0.7",
     "coveralls": "^3.0.6",
     "electron": "^6.0.4",
     "electron-builder": "^21.2.0",
